@@ -1,0 +1,147 @@
+import React from 'react';
+import { Bar } from 'react-chartjs-2'; // Only using Bar for simplicity
+import 'chart.js/auto'; // Import Chart.js
+
+const LPL = () => {
+  // Sample ball-by-ball statistics data
+  const ballStats = [
+    { over: 1, ball: 1, batsman: 'Kusal Perera', runs: 2, extras: 0, total: 2 },
+    { over: 1, ball: 2, batsman: 'Avishka Fernando', runs: 1, extras: 0, total: 3 },
+    { over: 1, ball: 3, batsman: 'Danushka Gunathilaka', runs: 4, extras: 0, total: 7 },
+    { over: 1, ball: 4, batsman: 'Niroshan Dickwella', runs: 0, extras: 1, total: 8 },
+    { over: 1, ball: 5, batsman: 'Sadeera Samarawickrama', runs: 6, extras: 0, total: 14 },
+    { over: 1, ball: 6, batsman: 'Bhanuka Rajapaksa', runs: 1, extras: 0, total: 15 },
+    { over: 2, ball: 1, batsman: 'Dinesh Chandimal', runs: 0, extras: 0, total: 15 },
+    { over: 2, ball: 2, batsman: 'Kusal Mendis', runs: 2, extras: 0, total: 17 },
+    { over: 2, ball: 3, batsman: 'Lasith Malinga', runs: 1, extras: 0, total: 18 },
+    { over: 2, ball: 4, batsman: 'Thisara Perera', runs: 3, extras: 0, total: 21 },
+    { over: 2, ball: 5, batsman: 'Wanindu Hasaranga', runs: 0, extras: 0, total: 21 },
+    { over: 2, ball: 6, batsman: 'Shiran Fernando', runs: 2, extras: 0, total: 23 },
+    { over: 3, ball: 1, batsman: 'Nishan Madushka', runs: 1, extras: 0, total: 24 },
+    { over: 3, ball: 2, batsman: 'Bhanuka Rajapaksa', runs: 4, extras: 0, total: 28 },
+    { over: 3, ball: 3, batsman: 'Ashan Priyanjan', runs: 0, extras: 0, total: 28 },
+    { over: 3, ball: 4, batsman: 'Dhananjaya de Silva', runs: 2, extras: 0, total: 30 },
+    { over: 3, ball: 5, batsman: 'Isuru Udana', runs: 6, extras: 0, total: 36 },
+    { over: 3, ball: 6, batsman: 'Jeffrey Vandersay', runs: 1, extras: 0, total: 37 },
+    { over: 4, ball: 1, batsman: 'Kusal Mendis', runs: 0, extras: 0, total: 37 },
+    { over: 4, ball: 2, batsman: 'Kusal Perera', runs: 2, extras: 0, total: 39 },
+    { over: 4, ball: 3, batsman: 'Danushka Gunathilaka', runs: 3, extras: 0, total: 42 },
+    { over: 4, ball: 4, batsman: 'Niroshan Dickwella', runs: 1, extras: 0, total: 43 },
+    { over: 4, ball: 5, batsman: 'Sadeera Samarawickrama', runs: 4, extras: 0, total: 47 },
+    { over: 4, ball: 6, batsman: 'Bhanuka Rajapaksa', runs: 0, extras: 0, total: 47 },
+    { over: 5, ball: 1, batsman: 'Dinesh Chandimal', runs: 1, extras: 0, total: 48 },
+    { over: 5, ball: 2, batsman: 'Kusal Mendis', runs: 2, extras: 0, total: 50 },
+    { over: 5, ball: 3, batsman: 'Lasith Malinga', runs: 0, extras: 0, total: 50 },
+    { over: 5, ball: 4, batsman: 'Thisara Perera', runs: 5, extras: 0, total: 55 },
+    { over: 5, ball: 5, batsman: 'Wanindu Hasaranga', runs: 1, extras: 0, total: 56 },
+    { over: 5, ball: 6, batsman: 'Shiran Fernando', runs: 4, extras: 0, total: 60 },
+    { over: 6, ball: 1, batsman: 'Nishan Madushka', runs: 0, extras: 0, total: 60 },
+    { over: 6, ball: 2, batsman: 'Bhanuka Rajapaksa', runs: 3, extras: 0, total: 63 },
+    { over: 6, ball: 3, batsman: 'Ashan Priyanjan', runs: 1, extras: 0, total: 64 },
+    { over: 6, ball: 4, batsman: 'Dhananjaya de Silva', runs: 0, extras: 0, total: 64 },
+    { over: 6, ball: 5, batsman: 'Isuru Udana', runs: 0, extras: 0, total: 64 },
+    { over: 6, ball: 6, batsman: 'Jeffrey Vandersay', runs: 1, extras: 1, total: 66 },
+  ];
+
+  // Sample data for the graphs
+  const playerPerformanceData = {
+    labels: ['Kusal Perera', 'Danushka Gunathilaka', 'Bhanuka Rajapaksa', 'Kusal Mendis', 'Niroshan Dickwella'],
+    datasets: [
+      {
+        label: 'Runs Scored',
+        data: [40, 30, 35, 25, 20],
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+      },
+    ],
+  };
+
+  const wicketsData = {
+    labels: ['Lasith Malinga', 'Wanindu Hasaranga', 'Isuru Udana', 'Dushmantha Chameera', 'Akila Dananjaya'],
+    datasets: [
+      {
+        label: 'Wickets Taken',
+        data: [3, 2, 4, 1, 2],
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+      },
+    ],
+  };
+
+  const strikeRateData = {
+    labels: ['Kusal Perera', 'Danushka Gunathilaka', 'Bhanuka Rajapaksa', 'Kusal Mendis', 'Niroshan Dickwella'],
+    datasets: [
+      {
+        label: 'Strike Rate',
+        data: [135, 120, 125, 110, 115],
+        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+      },
+    ],
+  };
+
+  const foursSixesData = {
+    labels: ['Kusal Perera', 'Danushka Gunathilaka', 'Bhanuka Rajapaksa', 'Kusal Mendis', 'Niroshan Dickwella'],
+    datasets: [
+      {
+        label: 'Fours',
+        data: [5, 3, 4, 2, 3],
+        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+      },
+      {
+        label: 'Sixes',
+        data: [2, 1, 2, 1, 2],
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+      },
+    ],
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-4 flex">
+      <div className="bg-white rounded shadow-md p-4 w-3/4">
+        <h2 className="text-2xl font-bold mb-4">LPL Ball by Ball Statistics</h2>
+        <table className="w-full table-auto border-collapse">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border px-4 py-2">Over</th>
+              <th className="border px-4 py-2">Ball</th>
+              <th className="border px-4 py-2">Batsman</th>
+              <th className="border px-4 py-2">Runs</th>
+              <th className="border px-4 py-2">Extras</th>
+              <th className="border px-4 py-2">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ballStats.map((ball, index) => (
+              <tr key={index}>
+                <td className="border px-4 py-2">{`${ball.over}.${ball.ball}`}</td>
+                <td className="border px-4 py-2">{ball.ball}</td>
+                <td className="border px-4 py-2">{ball.batsman}</td>
+                <td className="border px-4 py-2">{ball.runs}</td>
+                <td className="border px-4 py-2">{ball.extras}</td>
+                <td className="border px-4 py-2">{ball.total}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex flex-col w-1/4 ml-4">
+        <div className="bg-white rounded shadow-md p-4 mb-4">
+          <h3 className="font-bold mb-2">Runs Scored by Players</h3>
+          <Bar data={playerPerformanceData} options={{ responsive: true }} />
+        </div>
+        <div className="bg-white rounded shadow-md p-4 mb-4">
+          <h3 className="font-bold mb-2">Wickets Taken by Players</h3>
+          <Bar data={wicketsData} options={{ responsive: true }} />
+        </div>
+        <div className="bg-white rounded shadow-md p-4 mb-4">
+          <h3 className="font-bold mb-2">Strike Rates</h3>
+          <Bar data={strikeRateData} options={{ responsive: true }} />
+        </div>
+        <div className="bg-white rounded shadow-md p-4 mb-4">
+          <h3 className="font-bold mb-2">Fours and Sixes</h3>
+          <Bar data={foursSixesData} options={{ responsive: true }} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LPL;

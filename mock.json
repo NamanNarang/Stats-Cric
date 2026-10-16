@@ -1,0 +1,36 @@
+{
+    "leagueName": "Lanka Premier League",
+    "teamName": "Colombo Kings",
+    "ballStats": [
+      { "over": 1, "ball": 1, "batsman": "Kusal Perera", "runs": 2, "extras": 0, "total": 2 },
+      { "over": 1, "ball": 2, "batsman": "Avishka Fernando", "runs": 1, "extras": 0, "total": 3 },
+      { "over": 1, "ball": 3, "batsman": "Danushka Gunathilaka", "runs": 4, "extras": 0, "total": 7 },
+      { "over": 1, "ball": 4, "batsman": "Niroshan Dickwella", "runs": 0, "extras": 1, "total": 8 },
+      { "over": 1, "ball": 5, "batsman": "Sadeera Samarawickrama", "runs": 6, "extras": 0, "total": 14 },
+      { "over": 2, "ball": 1, "batsman": "Kusal Mendis", "runs": 2, "extras": 0, "total": 16 },
+      { "over": 2, "ball": 2, "batsman": "Thisara Perera", "runs": 1, "extras": 0, "total": 17 }
+    ],
+    "playerPerformance": [
+      { "name": "Kusal Perera", "runs": 40 },
+      { "name": "Danushka Gunathilaka", "runs": 30 },
+      { "name": "Bhanuka Rajapaksa", "runs": 35 },
+      { "name": "Kusal Mendis", "runs": 25 },
+      { "name": "Niroshan Dickwella", "runs": 20 }
+    ],
+    "wickets": [
+      { "name": "Lasith Malinga", "wickets": 3 },
+      { "name": "Wanindu Hasaranga", "wickets": 2 },
+      { "name": "Isuru Udana", "wickets": 4 }
+    ],
+    "strikeRates": [
+      { "name": "Kusal Perera", "strikeRate": 135 },
+      { "name": "Danushka Gunathilaka", "strikeRate": 120 },
+      { "name": "Bhanuka Rajapaksa", "strikeRate": 125 }
+    ],
+    "foursSixes": [
+      { "name": "Kusal Perera", "fours": 5, "sixes": 2 },
+      { "name": "Danushka Gunathilaka", "fours": 3, "sixes": 1 }
+    ]
+    
+  }
+  
